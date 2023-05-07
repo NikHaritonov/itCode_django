@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    {% if check == True %}
+    <title>Информация о покупателях</title>
+    {% else %}
+    <title>Составы зелий</title>
+    {% endif %}
+</head>
+<body>
+    {% if check == True %}
+    <table>
+        <thead><th>Имя</th><th>Счёт</th></thead>
+        {% for element in elements %}
+        <tr>
+            <td>{{ element.name }}</td>
+            <td>{{ element.wallet }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    <table>
+        <thead><th>Колличество ингредиентов</th><th>Название ингредиента</th><th>Название зелья</th></thead>
+        {% for element in elements %}
+        <tr>
+            <td>{{ element.countOfIngredient }}</td>
+            <td>{{ element.ingredients.name }}</td>
+            <td>{{ element.potion.name }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+</body>
+</html>

@@ -21,6 +21,9 @@ from test_project import views
 urlpatterns = [
     path('admin/', admin.site.urls), 
     path('', views.index, name='home'),
-    path("about/", views.about),
-    path("contact/", views.contact)
+    path("ingredients/", views.ingredients, kwargs={"ingred":True}),
+    path("potions/", views.ingredients, kwargs={"ingred":False}),
+    path("buyer/", views.buyers_or_structure, kwargs={"check":True}),
+    path("structure/", views.buyers_or_structure, kwargs={"check":False})
 ]
+
